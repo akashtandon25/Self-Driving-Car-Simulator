@@ -29,7 +29,6 @@ const traffic = [
   new Car(road.getLaneCentre(0),-850,30,50,"DUMMY",2,"red"),
   new Car(road.getLaneCentre(1),-1000,30,50,"DUMMY",2,"red"),
   new Car(road.getLaneCentre(2),-1000,30,50,"DUMMY",2,"red"),
-
 ];
 
 
