@@ -31,6 +31,35 @@ const traffic = [
   new Car(road.getLaneCentre(2),-1000,30,50,"DUMMY",2,"red"),
 ];
 
+const traffic_rev= [
+  new Car(road.getLaneCentre(1),-100,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(2),-250,30,50,"REV",2,"red"),
+  new Car(road.getLaneCentre(0),-250,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(1),-400,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(2),-400,30,50,"REV",2,"red"),
+  new Car(road.getLaneCentre(1),-550,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(0),-550,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(0),-700,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(2),-700,30,50,"REV",2,"red"),
+  new Car(road.getLaneCentre(1),-850,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(0),-850,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(1),-1000,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(2),-1000,30,50,"REV",2,"red"),
+]
+
+const traffic_random= [
+  // new Car(road.getLaneCentre(1),-100,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(0),-250,30,50,"REV",2,"green"),
+  new Car(road.getLaneCentre(1),-400,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(2),-400,30,100,"STATIONARY",2,"black"),
+  new Car(road.getLaneCentre(1),-550,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(0),-550,30,50,"REV",2,"green"),
+  new Car(road.getLaneCentre(0),-700,30,50,"REV",2,"green"),
+  new Car(road.getLaneCentre(2),-700,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(1),-850,30,50,"DUMMY",2,"red"),
+  new Car(road.getLaneCentre(0),-850,30,50,"REV",2,"green"),
+  new Car(road.getLaneCentre(1),-1000,30,50,"DUMMY",2,"red"),
+]
 
 
 function generateCars(N){
@@ -50,11 +79,11 @@ function discard(){
 }
 
 function animate(){
-  for(let i=0;i<traffic.length;i++){
-    traffic[i].update(road.borders,[]);
+  for(let i=0;i<traffic_random.length;i++){
+    traffic_random[i].update(road.borders,[]);
   }
   for(let i=0;i<cars.length;i++){
-    cars[i].update(road.borders,traffic);
+    cars[i].update(road.borders,traffic_random);
   }
 
   bestCar=cars.find(
@@ -64,8 +93,8 @@ function animate(){
   ctx.save();
   ctx.translate(0,-bestCar.y+canvas.height*0.7);
   road.draw(ctx);
-  for(let i=0;i<traffic.length;i++){
-    traffic[i].draw(ctx);
+  for(let i=0;i<traffic_random.length;i++){
+    traffic_random[i].draw(ctx);
   }
   ctx.globalAlpha=0.2;
   for(let i=0;i<cars.length;i++){

@@ -12,6 +12,11 @@ class Controls{
       case "DUMMY":
         this.forward=true;
         break;
+      case "REV":
+        this.reverse=true;
+        break;
+      case "STATIONARY":
+        break;
     }
 
      //here the #represent private function
